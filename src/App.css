@@ -1,0 +1,293 @@
+
+/* Cute cartoon-style background */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #dff6ff,
+    #f3e8ff,
+    #fff0f5,
+    #e3fff3
+  );
+
+  background-attachment: fixed;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
+  background-image:
+    radial-gradient(circle at 10% 15%, #ffffffb8 0 35px, transparent 36px),
+    radial-gradient(circle at 90% 25%, #ffffffa6 0 45px, transparent 46px),
+    radial-gradient(circle at 15% 85%, #ffe0f0a6 0 50px, transparent 51px),
+    radial-gradient(circle at 85% 85%, #d6fff0a6 0 55px, transparent 56px);
+}
+
+.page-title {
+  text-align: center;
+  color: #6251a5;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 3px 0 #ffffff;
+}
+
+
+
+
+/* Cute search box */
+
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 25px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+
+  border: 3px solid #d8c9ff;
+  border-radius: 18px;
+  background: #ffffffdd;
+
+  font-size: 16px;
+  outline: none;
+
+  box-shadow: 0 6px 0 #d8c9ff;
+  transition: 0.25s ease;
+}
+
+.search-input:focus {
+  border-color: #a995ff;
+  box-shadow: 0 6px 0 #b8a8ff;
+  transform: translateY(-2px);
+}
+
+/* Name, age and department inputs */
+
+.form-input {
+  width: 100%;
+  max-width: 350px;
+  margin: 8px;
+  padding: 12px 15px;
+  box-sizing: border-box;
+
+  border: 2px solid #c8e8ff;
+  border-radius: 15px;
+  background: #ffffffdf;
+
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.form-input:focus {
+  border-color: #80cfff;
+  box-shadow: 0 0 0 4px #bceaff80;
+}
+
+
+
+/* Cute cartoon-style buttons */
+
+.action-button {
+  padding: 12px 22px;
+  margin: 8px;
+  border: 3px solid white;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.add-button {
+  background: #b8f2d0;
+  color: #286749;
+  box-shadow: 0 5px 0 #7bd6a4;
+}
+
+.cancel-button {
+  background: #ffd6e7;
+  color: #a33d69;
+  box-shadow: 0 5px 0 #f3a7c8;
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.03);
+}
+
+.action-button:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+
+
+/* Cute student cards */
+
+.student-card {
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
+  margin: 25px auto;
+  padding: 25px;
+
+  background: #ffffffd9;
+  border: 3px solid #e5d9ff;
+  border-radius: 25px;
+
+  text-align: center;
+  box-shadow: 0 8px 0 #d8c9ff, 0 12px 25px #b8a8ff30;
+
+  transition: transform 0.25s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-5px) rotate(-0.5deg);
+}
+
+.student-emoji {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.student-card h2 {
+  color: #6954a5;
+  margin: 8px 0 18px;
+}
+
+.student-info {
+  text-align: left;
+  background: #f7f2ff;
+  padding: 10px 15px;
+  border-radius: 16px;
+  color: #514767;
+}
+
+.student-info p {
+  overflow-wrap: anywhere;
+}
+
+.student-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.edit-button {
+  background: #cdeeff;
+  color: #245d80;
+  box-shadow: 0 5px 0 #91d6f5;
+}
+
+.delete-button {
+  background: #ffd6e7;
+  color: #a33d69;
+  box-shadow: 0 5px 0 #f3a7c8;
+}
+
+
+/* Main form layout */
+
+.student-form {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  padding: 25px;
+  box-sizing: border-box;
+
+  background: #ffffffa8;
+  border: 3px solid #ffffff;
+  border-radius: 28px;
+
+  text-align: center;
+  box-shadow: 0 8px 25px #9b8acb20;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.form-fields .form-input {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.student-form .search-input {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 25px 14px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .student-form {
+    padding: 16px;
+  }
+
+  .form-fields {
+    flex-direction: column;
+  }
+
+  .form-fields .form-input {
+    width: 100%;
+    max-width: 100%;
+    margin: 6px 0;
+  }
+}
+
+
+
+/* Student cards layout */
+
+
+/* Responsive student grid */
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.student-grid .student-card {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.empty-message {
+  grid-column: 1 / -1;
+  color: #6954a5;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.app-container {
+  text-align: center;
+}
+
+.student-form {
+  margin-bottom: 40px;
+}

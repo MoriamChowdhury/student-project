@@ -1,11 +1,12 @@
 import { useState } from "react";
 import StudentCard from "./StudentCard";
+import "./App.css";
 
 function App() {
   const [students, setStudents] = useState([
     {
       id: 1,
-      name: "Moriam",
+      name: "Maria",
       age: 20,
       department: "CSE",
     },
@@ -35,15 +36,22 @@ function App() {
   const [age, setAge] = useState("");
   const [department, setDepartment] = useState("");
 
+  const [searchTerm, setSearchTerm] = useState("");
+
 
 
   
 
   const handleAddStudent = () => {
-  if (name === "" || age === "" || department === "") {
-    alert("Please fill all fields");
-    return;
-  }
+  if (
+  name.trim() === "" ||
+  age === "" ||
+  Number(age) <= 0 ||
+  department.trim() === ""
+) {
+  alert("Please enter valid information");
+  return;
+}
     const newStudent = {
       id: students.length + 1,
       name: name,
@@ -97,11 +105,81 @@ const handleUpdate = () => {
   setDepartment("");
 };
 
+const handleCancelEdit = () => {
+  setEditId(null);
+  setName("");
+  setAge("");
+  setDepartment("");
+};
+const filteredStudents = students.filter((student) =>
+  student.name.toLowerCase().includes(searchTerm.toLowerCase())
+);
   return (
-    <div>
-      <h1>Student List</h1>
+//   <div className="app-container">
+//     <h1 className="page-title">Student Management 🎓</h1>
+//       <input
+//   className="search-input"
+//   type="text"
+//   placeholder="Search student by name..."
+//   value={searchTerm}
+//   onChange={(e) => setSearchTerm(e.target.value)}
+// />
 
+//       <input
+//   className="form-input"
+//   type="text"
+//   placeholder="Enter name"
+//   value={name}
+//   onChange={(e) => setName(e.target.value)}
+// />
+
+//       <input
+//   className="form-input"
+//   type="number"
+//   placeholder="Enter age"
+//   value={age}
+//   onChange={(e) => setAge(e.target.value)}
+// />
+
+//      <input
+//   className="form-input"
+//   type="text"
+//   placeholder="Enter department"
+//   value={department}
+//   onChange={(e) => setDepartment(e.target.value)}
+// />
+//   <button
+//   className="action-button add-button"
+//   onClick={editId === null ? handleAddStudent : handleUpdate}
+// >
+//   {editId === null ? "Add Student" : "Update Student"}
+// </button>
+
+// {editId !== null && (
+//   <button
+//     className="action-button cancel-button"
+//     onClick={handleCancelEdit}
+//   >
+//     Cancel Edit
+//   </button>
+// )}
+
+
+<div className="app-container">
+  <h1 className="page-title">Student Management 🎓</h1>
+
+  <div className="student-form">
+    <input
+      className="search-input"
+      type="text"
+      placeholder="🔍 Search student by name..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+    />
+
+    <div className="form-fields">
       <input
+        className="form-input"
         type="text"
         placeholder="Enter name"
         value={name}
@@ -109,6 +187,7 @@ const handleUpdate = () => {
       />
 
       <input
+        className="form-input"
         type="number"
         placeholder="Enter age"
         value={age}
@@ -116,26 +195,66 @@ const handleUpdate = () => {
       />
 
       <input
+        className="form-input"
         type="text"
         placeholder="Enter department"
         value={department}
         onChange={(e) => setDepartment(e.target.value)}
       />
+    </div>
 
-      <button onClick={editId === null ? handleAddStudent : handleUpdate}>
-  {editId === null ? "Add Student" : "Update Student"}
-</button>
-      {students.map((student) => (
-        <StudentCard
-          key={student.id}
-          name={student.name}
-          age={student.age}
-          department={student.department}
-          id={student.id}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
-      ))}
+    <button
+      className="action-button add-button"
+      onClick={editId === null ? handleAddStudent : handleUpdate}
+    >
+      {editId === null ? "Add Student ✨" : "Update Student ✏️"}
+    </button>
+
+    {editId !== null && (
+      <button
+        className="action-button cancel-button"
+        onClick={handleCancelEdit}
+      >
+        Cancel Edit
+      </button>
+    )}
+  </div>
+
+ 
+<div className="student-grid">
+  {filteredStudents.length > 0 ? (
+    filteredStudents.map((student) => (
+      <StudentCard
+        key={student.id}
+        name={student.name}
+        age={student.age}
+        department={student.department}
+        id={student.id}
+        onDelete={handleDelete}
+        onEdit={handleEdit}
+      />
+    ))
+  ) : (
+    <p className="empty-message">No students found. 🌸</p>
+  )}
+</div>
+
+
+      {/* {filteredStudents.length > 0 ? (
+  filteredStudents.map((student) => (
+    <StudentCard
+      key={student.id}
+      name={student.name}
+      age={student.age}
+      department={student.department}
+      id={student.id}
+      onDelete={handleDelete}
+      onEdit={handleEdit}
+    />
+  ))
+) : (
+  <p>No students found.</p>
+)} */}
     </div>
   );
 }
