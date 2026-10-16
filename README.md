@@ -12,6 +12,12 @@ A simple and interactive Student Management System built with React. This projec
 - 🎨 **Cute UI Design:** Pastel colors, rounded cards, and playful buttons.
 - 📱 **Responsive Layout:** Student cards adapt to different screen sizes.
 
+
+<img width="1911" height="867" alt="image" src="https://github.com/user-attachments/assets/5cd0eb91-c430-43dc-8208-7c0074b4b1e5" />
+
+
+
+
 ## 🛠️ Technologies Used
 
 - React
